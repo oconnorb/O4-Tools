@@ -14,3 +14,11 @@ python3.10 submit_treasuremap.py example_SWOPE_Schedule_20230504.dat MS230507o c
 For gwemopt output file you can run: 
 
 python3.10 submit_treasuremap_gwemopt.py schedule_DECam.dat MS230507o completed 38 your_api_token_goes_here
+
+# Swift ToO wrapper:
+
+TBD
+
+# gwemopt Wrapper:
+
+TBD
