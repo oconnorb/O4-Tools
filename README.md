@@ -3,7 +3,7 @@ Useful python tools for LVK O4
 
 Python wrappers for Treasuremap, Swift ToOs, and converting gwemopt output to DECam JSON files.
 
-#Treasuremap wrapper:
+# Treasuremap wrapper:
 
 python3.10 submit_treasuremap.py file graceid status instrumend_id api_token
 
