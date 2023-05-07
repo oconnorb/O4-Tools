@@ -5,6 +5,6 @@ Python wrappers for Treasuremap, Swift ToOs, and converting gwemopt output to DE
 
 Treasuremap wrapper: 
 
-python3.10 submit_treasuremap.py file graceid status instrumendid api_token
+python3.10 submit_treasuremap.py file graceid status instrumend_id api_token
 
 python3.10 submit_treasuremap.py example_SWOPE_Schedule_20230504.dat MS230507o completed 68 your_api_token_goes_here
