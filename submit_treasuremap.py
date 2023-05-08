@@ -12,7 +12,7 @@ def submit_treasuremap(graceid, api_token, status, ralist, declist, times, depth
 
     for i in range(len(ralist)):
         
-        c = SkyCoord(ralist[i], declist[i], frame='fk5', unit=(u.hourangle, u.deg))
+        c = SkyCoord(ralist[i], declist[i], frame='fk5', unit=(u.hourangle, u.deg, u.second))
         
         p = gwtm_api.Pointing(
         ra=c.ra.deg,
