@@ -6,11 +6,11 @@ from astropy.table import Table
 #https://docs.google.com/document/d/198HZHG70qLPNYletOZiW9s0wKscQU4wFw8dMynvk0Lc/edit?usp=sharing
 
 # Username and secret key
-#username = "oconnorb10"
-#shared_secret = "ydSnTWIvJX1kg4Hqxjhmm"
+#username = "your_username"
+#shared_secret = "your_shared_secret"
 
 #How to run from command line
-# python3 submit_swift_too.py example_Swift_ToO.dat oconnorb10 ydSnTWIvJX1kg4Hqxjhmm GW190425 1000 1 3 2 0x30d5
+# python3 submit_swift_too.py example_Swift_ToO.dat "your_username "your_shared_secret" GW190425 1000 1 3 2 0x30d5
 
 
 def submit_swift_too(username, shared_secret, GW_event, exp_time, visitfreq, visitnumber, urgency, uvot_filter, src_name, ra, dec, mag, Filter, debug):
