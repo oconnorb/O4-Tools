@@ -1,10 +1,22 @@
 import gwtm_api
 import datetime
 from astropy.coordinates import SkyCoord 
+from astropy.coordinates import Angle
 from astropy.table import Table
 import astropy.units as u
 from astropy.time import Time
 import numpy as np
+import matplotlib.pyplot as plt
+
+
+#Documentation links
+#https://docs.google.com/document/d/1R0Fv2vU33oKc6U7UTRP7pB3Xt4duK5wcbRQ1b5jQUSs/edit?usp=sharing
+
+#RA and DEC should be in degrees
+
+#How to run from command line
+# python3.10 submit_treasuremap_gwemopt.py /Users/brendan/Documents/research/gwemopt/data/GW190425_test/schedule_DECam.dat MS230508n completed 38 your_api_token_goes_here
+
 
 def submit_treasuremap_gwemopt(graceid, api_token, status, ralist, declist, times, depths, bands, instrumentid):
 	#Bulk submission of treasure map pointings for e.g. Swope in the format e.g. # name ra dec filter exptime start_time_utc m3sigma 
@@ -13,12 +25,10 @@ def submit_treasuremap_gwemopt(graceid, api_token, status, ralist, declist, time
     batch = []
 
     for i in range(len(ralist)):
-        
-        c = SkyCoord(ralist[i], declist[i], frame='fk5', unit=(u.hourangle, u.deg))
-        
+                
         p = gwtm_api.Pointing(
-        ra=c.ra.deg,
-        dec=c.dec.deg,
+        ra= ralist[i],
+        dec= declist[i],
         instrumentid = instrumentid,
         time = times[i],
         status = status,
@@ -42,7 +52,7 @@ def submit_treasuremap_gwemopt(graceid, api_token, status, ralist, declist, time
 if __name__ == '__main__':
 
 
-	print("Takes an input of the gwemopt output pointings (schedule_DECam.dat).")
+	print("Takes an input of the gwemopt output pointings (schedule_DECam.dat) where RA/DEC are in degrees.")
 
 	#############################
 	## Parsing input arguments ##
@@ -79,10 +89,15 @@ if __name__ == '__main__':
 	submit_treasuremap_gwemopt(args.graceid, args.api_token, args.status, ralist, declist, t, depths, bands, args.instrumentid)
 
     #How to run from command line
-    # python3.10 submit_treasuremap_gwemopt.py /Users/brendan/Documents/research/gwemopt/data/GW190425_test/schedule_DECam.dat MS230507o completed 38 your_api_token_goes_here
+    # python3.10 submit_treasuremap_gwemopt.py /Users/brendan/Documents/research/gwemopt/data/GW190425_test/schedule_DECam.dat MS230508n completed 38 your_api_token_goes_here
 
-
-
+	#ra = Angle(ralist*u.degree)
+	#ra = ra.wrap_at(180*u.degree)
+	#dec = Angle(declist*u.degree)
+	#fig = plt.figure(figsize=(8,6))
+	#ax = fig.add_subplot(111, projection='mollweide')
+	#ax.scatter(ra.radian, dec.radian)
+	#plt.show()
 
 
 
