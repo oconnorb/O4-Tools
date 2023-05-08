@@ -1,0 +1,3 @@
+#srcname ra dec mag filter
+GW170817A 240 -30 18 r
+GW170817B 220 -10 17 z
