@@ -23,8 +23,12 @@ python3.10 submit_treasuremap_gwemopt.py schedule_DECam.dat MS230507o completed 
 
 # Swift ToO wrapper:
 
-TBD
+To submit multiple Swift ToOs from a text file with columns of: #srcname ra dec mag filter
 
-# gwemopt Wrapper:
+To run the code in terminal use:
+
+python3 submit_swift_too.py example_Swift_ToO.dat "your_username "your_shared_secret" GW_event exp_time visit_frequency visit_number urgency uvot_filter_string
+
+# gwemopt DECam Wrapper:
 
 TBD
