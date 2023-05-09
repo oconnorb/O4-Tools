@@ -31,4 +31,9 @@ python3 submit_swift_too.py example_Swift_ToO.dat "your_username "your_shared_se
 
 # gwemopt DECam Wrapper:
 
-TBD
+gwemopt_to_json_DECam.py converts the gwemopt output file into the format of a DECam pointings json file. 
+
+To run the code in terminal use:
+
+python gwemopt_to_json_DECam.py schedule_DECam.dat DECam_program_ID GW_event
+
