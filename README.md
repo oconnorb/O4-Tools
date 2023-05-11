@@ -23,6 +23,8 @@ python3.10 submit_treasuremap_gwemopt.py schedule_DECam.dat MS230507o completed 
 
 # Swift ToO wrapper:
 
+The file Swift_ToO_API_Submission_Notebook.ipynb allows for submitting a ToO in a Jupyter Notebook format - **this is the preferred method and is easiest to verify** - automic submission as below could be tricky.
+
 To submit multiple Swift ToOs from a text file with columns of: #srcname ra dec mag filter
 
 To run the code in terminal use:
