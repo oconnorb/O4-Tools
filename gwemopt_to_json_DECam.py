@@ -6,14 +6,14 @@ import argparse
 
 def all(file, snid, name):
 
-    field, ra, dec, tobs, limmag, texp, prob, airmass, filt, pid = np.loadtxt(file,unpack=True,dtype=str)
+    field, ra, dec, tobs, limmag, texp, prob, airmass, filt = np.loadtxt(file,unpack=True,dtype=str)
     ra,dec = ra.astype(float),dec.astype(float)
 
-    tiles('2022B-922046_GW',[snid],ra,dec,filt,texp,[name],[snid],['object'],[snid])
+    tiles('2022B-922046_GW',[snid],ra,dec,filt,texp,[name],[snid],['object'],['GW-MMADS'])
 
 def tiles(json_outpath,json_prefixs,pointRAs,pointDECs,filts,exps,propids,objects,exptypes,programs):
 
-    for json_prefix,pointRA,pointDEC,filt,exp,propid,tobject,exptype,program in zip(json_prefixs,pointRAs,pointDECs,filts,exps,propids,objects,exptypes,programs):
+    for json_prefix,pointRA,pointDEC,filt,exp,propid,tobject,exptype,program in zip(json_prefixs,pointRAs,pointDECs,filts,exps,objects,propids,exptypes,programs):
         
 
         json_out = []
@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
 
     #to run:
-    #python gwemopt_to_json_DECam.py /Users/brendan/Documents/research/gwemopt/data/GW190425_test/schedule_DECam.dat 2022B-922046 GW190425
+    #python gwemopt_to_json_DECam.py /Users/brendan/Documents/research/gwemopt/data/S230520ae/schedule_DECam.dat 2022B-922046 S230520ae
 
 
 
