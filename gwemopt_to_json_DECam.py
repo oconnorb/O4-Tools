@@ -9,11 +9,11 @@ def all(file, snid, name):
     field, ra, dec, tobs, limmag, texp, prob, airmass, filt = np.loadtxt(file,unpack=True,dtype=str)
     ra,dec = ra.astype(float),dec.astype(float)
 
-    tiles('2022B-922046_GW',[snid],ra,dec,filt,texp,[name],[snid],['object'],['GW-MMADS'])
+    tiles('2022B-922046_GW',[snid],ra,dec,filt,texp,[name],[snid],['object'],['GW-MMADS'],field)
 
-def tiles(json_outpath,json_prefixs,pointRAs,pointDECs,filts,exps,propids,objects,exptypes,programs):
+def tiles(json_outpath,json_prefixs,pointRAs,pointDECs,filts,exps,propids,objects,exptypes,programs,fields):
 
-    for json_prefix,pointRA,pointDEC,filt,exp,propid,tobject,exptype,program in zip(json_prefixs,pointRAs,pointDECs,filts,exps,objects,propids,exptypes,programs):
+    for json_prefix,pointRA,pointDEC,filt,exp,propid,tobject,exptype,program,field in zip(json_prefixs,pointRAs,pointDECs,filts,exps,objects,propids,exptypes,programs,fields):
         
 
         json_out = []
@@ -36,12 +36,13 @@ def tiles(json_outpath,json_prefixs,pointRAs,pointDECs,filts,exps,propids,object
                 json_out.append('\t\t"exptime": %f,'% float(exps[i]))
                 json_out.append('\t\t"RA": %f,' % round(float(pointRAs[i]), 5))
                 json_out.append('\t\t"dec": %f,' % round(float(pointDECs[i]), 5))
-                json_out.append('\t\t"object": "%s",'%tobject)
+                json_out.append('\t\t"object": "%s",'% (tobject + ' ' + str(field)))
                 json_out.append('\t\t"program": "%s",'%program)
                 json_out.append('\t\t"expType": "%s",'%exptype)
                 json_out.append('\t\t"note": "None",')
                 json_out.append('\t\t"comment": "%s",'%json_prefix)
                 json_out.append('\t\t"wait": "False",')
+                json_out.append('\t\t"proposer": "Andreoni Palmese",')
                 json_out.append('\t\t"propid": "%s"'%propid)
 
                 if cntr == lenobs:
